@@ -1,0 +1,7 @@
+.main-content {
+    background-color: #ded9d9;
+    margin-left: 230px;
+    width: calc(100% - 230px);
+    height: calc(100vh - 60px);
+    padding: 25px
+}

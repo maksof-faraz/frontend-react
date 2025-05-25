@@ -1,0 +1,52 @@
+ .custom-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 1rem;
+      margin-bottom: 20px;
+      border-left: 5px solid red;
+      position: relative;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-subtitle {
+      font-weight: bold;
+      color: #f0a94ddf !important;
+    }
+
+    .card-icons i {
+      margin-left: 10px;
+      cursor: pointer;
+      color: #666;
+    }
+
+    .card-icons i:hover {
+      color: #000;
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+
+    .card-description {
+      margin: 0.5rem 0;
+      color: #333;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .date-text {
+      font-size: 0.9rem;
+      color: #777;
+    }

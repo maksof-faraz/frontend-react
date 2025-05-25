@@ -1,0 +1,119 @@
+.checklist-inner-wrapper {
+    padding: 20px;
+    background-color: #f9fafb;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.main-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #111827;
+}
+
+.checklist-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.checklist-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: #374151;
+}
+
+.create-icon {
+    font-size: 20px;
+    color: #2563eb;
+    cursor: pointer;
+    margin-left: 12px;
+}
+
+.checklist-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.add-button {
+    padding: 8px 16px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.add-button:hover {
+    background-color: #1e40af;
+}
+
+.accordion-list {
+    margin-top: 20px;
+}
+
+.accordion-item {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    background-color: rgb(95, 195, 191);
+}
+
+.accordion-header {
+    padding: 12px 16px;
+    background-color: #93dce9;
+    font-weight: 500;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.accordion-content {
+    background-color: #baedf7ec;
+    padding: 12px 16px;
+    display: none;
+}
+
+.accordion-content.expanded {
+    display: block;
+}
+
+.checklist-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.checklist-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.checked-label {
+    text-decoration: line-through;
+    color: #9ca3af;
+}
+
+.delete-icon {
+    cursor: pointer;
+    font-size: 18px;
+    color: #dc2626;
+    margin-left: 12px;
+}
+
+.add-content-line {
+    color: #2563eb;
+}
