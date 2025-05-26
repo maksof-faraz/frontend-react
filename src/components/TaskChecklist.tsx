@@ -3,6 +3,7 @@ import { addTaskchecklist } from '../apis/axiosApi';
 import './TaskChecklist.css';
 import Checkbox from '@mui/material/Checkbox';
 import type { checklistItems, taskChecklist, TaskChecklistModalProps, SubChecklistItem } from '../types/userTypes';
+import { toast } from 'react-toastify';
 
 function TaskChecklist({ show, onClose, task }: TaskChecklistModalProps) {
 
@@ -103,13 +104,14 @@ function TaskChecklist({ show, onClose, task }: TaskChecklistModalProps) {
             const res: any = await addTaskchecklist(checkListArray)
             if (res.status == 201) {
                 setBtnDisable(false);
+                toast(res.data.msg)
                 onClose(); // close modal
             }
 
 
         } catch (err) {
+            toast.error('Internal server error, please try again')
             setBtnDisable(false);
-            console.error(err);
         }
     };
 

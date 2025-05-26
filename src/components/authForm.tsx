@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import type { LoginRegister } from '../types/userTypes';
 import { AuthContext } from '../store/auth';
 import { jwtDecode } from 'jwt-decode';
+import { toast } from 'react-toastify';
 
 const AuthForm = () => {
 
@@ -67,10 +68,12 @@ const AuthForm = () => {
         })
 
         setTokenInLS(res.data.token)
+        toast(res.data.msg)
         navigate('/dashboard')
       }
       setBtnDisable(false)
     } catch (err) {
+      toast.error('Internal server error, please try aga')
       setBtnDisable(false)
       console.error(err);
     }

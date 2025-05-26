@@ -6,6 +6,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { addTask, updateTask } from '../apis/axiosApi';
 import dayjs from 'dayjs';
 import type { AddTaskModal, TaskModalProps } from '../types/userTypes';
+import { toast } from 'react-toastify';
 
 function AddTask({ show, onClose, updatedTask }: TaskModalProps) {
 
@@ -66,13 +67,12 @@ function AddTask({ show, onClose, updatedTask }: TaskModalProps) {
                     priority: 'Medium',
                     assignDate: dayjs(),
                 })
+                toast(res.data.msg)
                 onClose(); // close modal
-
-
             }
         } catch (err) {
+            toast.error('Internal server error , please try again')
             setBtnDisable(false);
-            console.error(err);
         }
     };
 

@@ -6,6 +6,7 @@ import './taskComponent.css';
 import type { AddTaskModal, taskList } from "../types/userTypes";
 import dayjs from 'dayjs';
 import { useOutletContext } from "react-router-dom";
+import { toast } from 'react-toastify';
 
 type OutletContextType = {
     setFunctionRef: (fn: (param: string) => void) => void;
@@ -14,10 +15,6 @@ type OutletContextType = {
 const TaskComponent = () => {
 
     const { setFunctionRef } = useOutletContext<OutletContextType>();
-
-
-
-
 
     const [showModal, setShowModal] = useState(false);
     const [showCkecklistwModal, setShowCkecklistwModal] = useState(false);
@@ -45,6 +42,7 @@ const TaskComponent = () => {
         setIsUpdated(false)
         setShowModal(false)
         setUpdatedTask([]);
+        getTaskslist('All')
     }
 
 
@@ -53,8 +51,12 @@ const TaskComponent = () => {
         if (confirmed) {
             try {
                 const res: any = await deleteTask(tasks[i]._id);
-                // setTasks(res.data.data)
+                if (res.status = '201') {
+                    toast(res.data.msg)
+                    getTaskslist('All')
+                }
             } catch (err) {
+                toast.error('Internal server error, please try again')
                 console.log(err)
             }
         } else return;
@@ -96,11 +98,9 @@ const TaskComponent = () => {
                 Add Task
             </button>
             <AddTask show={showModal} onClose={closeModal} updatedTask={isUpdated ? updatedTask[0] : { _id: '', title: '', description: '', priority: 'Medium', assignDate: dayjs() }} />
-            <TaskChecklist show={showCkecklistwModal} onClose={() => setShowCkecklistwModal(false)} task={showCkecklistwModal ? taskChecklist[0] : { _id: '', title: '', description: '', priority: 'Medium', assignDate: dayjs(), taskCheckLists: [] }} />
+            <TaskChecklist show={showCkecklistwModal} onClose={() => {setShowCkecklistwModal(false);  getTaskslist('All')}} task={showCkecklistwModal ? taskChecklist[0] : { _id: '', title: '', description: '', priority: 'Medium', assignDate: dayjs(), taskCheckLists: [] }} />
 
             <div className="row mt-4" >
-
-
 
                 {
 
